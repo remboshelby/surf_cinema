@@ -1,0 +1,9 @@
+{
+  "@@locale": "ru",
+  "title": "Surf cinema",
+  "@title": {
+    "description": "The application title",
+    "type": "text",
+    "placeholders": {}
+  }
+}
