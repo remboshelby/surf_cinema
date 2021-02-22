@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "connectionError" : MessageLookupByLibrary.simpleMessage("Connection error"),
+    "noInternetError" : MessageLookupByLibrary.simpleMessage("No Internet connection"),
     "title" : MessageLookupByLibrary.simpleMessage("Surf cinema")
   };
 }

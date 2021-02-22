@@ -1,8 +1,18 @@
 {
   "@@locale": "en",
+  "@@last_modified": "2021-01-11T20:43:30.828721",
   "title": "Surf cinema",
   "@title": {
-    "description": "The application title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "connectionError": "Connection error",
+  "@connectionError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noInternetError": "No Internet connection",
+  "@noInternetError": {
     "type": "text",
     "placeholders": {}
   }

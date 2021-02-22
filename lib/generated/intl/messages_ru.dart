@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "noInternetError" : MessageLookupByLibrary.simpleMessage("Отсутствует подключение к сети Интернет"),
     "title" : MessageLookupByLibrary.simpleMessage("Surf cinema")
   };
 }

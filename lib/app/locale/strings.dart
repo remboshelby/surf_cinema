@@ -16,10 +16,10 @@ class AppStrings {
   }
 
   String get title => Intl.message(
-    'Surf cinema',
-    name: 'title',
-    desc: 'The application title',
-  );
+        'Surf cinema',
+        name: 'title',
+        desc: 'The application title',
+      );
 
   static AppStrings of(BuildContext context) {
     return Localizations.of<AppStrings>(context, AppStrings);
@@ -27,4 +27,16 @@ class AppStrings {
 
   static LocalizedString string(String Function(AppStrings s) factory) =>
       LocalizedString.fromFactory((context) => factory(AppStrings.of(context)));
+
+  String get connectionError => Intl.message(
+        'Ошибка подключения',
+        name: 'connectionError',
+      );
+
+  String get noInternetError => Intl.message(
+        'Интернет соединение отсутствует',
+        name: 'noInternetError',
+      );
+
+  String get cancelled => Intl.message('Cancelled', name: 'cancelled');
 }
