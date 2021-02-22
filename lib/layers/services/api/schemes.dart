@@ -9,9 +9,20 @@ import 'package:surf_cinema/layers/exceptions/common.dart';
 part 'schemes.g.dart';
 
 @SerdesJson(convertToSnakeCase: true)
-class AssetsResponseScheme {
+class FilmItemResponseScheme {
+  int id;
   Optional<String> posterPath;
-  Optional<bool> adult;
-  Optional<String> overview;
-  Optional<String> releaseDate;
+  bool adult;
+  String overview;
+  String releaseDate;
+  String originalTitle;
+  String originalLanguage;
+  List<int> genreIds;
+  String title;
+  Optional<String> backdropPath;
+  int popularity;
+  int voteCount;
+  bool video;
+  int voteAverage;
 }
+
