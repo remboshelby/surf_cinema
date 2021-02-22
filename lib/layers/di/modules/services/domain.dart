@@ -10,8 +10,8 @@ Future<void> setupDomainDependencies(Config config) async {
 
   sl.registerFactory<FilmsService>(
     () => FilmsServiceImpl(
-      GetIt.instance()<ApiGateway>(),
-      GetIt.instance()<FilmsAdapter>(),
+      GetIt.instance.get<ApiGateway>(),
+      GetIt.instance.get<FilmsAdapter>(),
     ),
   );
 }

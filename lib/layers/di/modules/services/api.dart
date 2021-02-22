@@ -7,9 +7,10 @@ import 'package:surf_cinema/layers/services/api/impl/gateway.dart';
 Future<void> setupApiDependencies(Config config) async {
   final sl = GetIt.instance;
 
-  sl.registerLazySingleton<ApiGateway>(
+  sl.registerFactory<ApiGateway>(
     () => ApiGatewayImpl(
       GetIt.instance.get<DioClient>(),
+      GetIt.instance.get<Config>(),
     ),
   );
 }

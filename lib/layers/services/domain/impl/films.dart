@@ -14,9 +14,9 @@ class FilmsServiceImpl implements FilmsService {
   );
 
   @override
-  Future<List<FilmUiModel>> discoverFilms() async {
-    final page = await _apiGateway.discoverFilms();
-    return filmsAdapter.createFilmsList(page);
+  Future<List<FilmUiModel>> discoverFilms({int page}) async {
+    final filmsPage = await _apiGateway.discoverFilms(page: page);
+    return filmsAdapter.createFilmsList(filmsPage);
   }
 
   @override

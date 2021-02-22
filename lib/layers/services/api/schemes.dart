@@ -20,9 +20,9 @@ class FilmItemResponseScheme {
   List<int> genreIds;
   String title;
   Optional<String> backdropPath;
-  int popularity;
+  double popularity;
   int voteCount;
   bool video;
-  int voteAverage;
+  double voteAverage;
 }
 

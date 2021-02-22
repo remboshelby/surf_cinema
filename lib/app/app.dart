@@ -12,7 +12,11 @@ Future<void> setUp() async {
   // Hive.registerAdapter(TransactionHiveStateAdapter());
 }
 
-class SurfCinema extends StatelessWidget {
+class SurfCinemaApp extends StatelessWidget {
+  final Widget home;
+
+  SurfCinemaApp({Key key, this.home}) : super(key: key);
+
   final _navigator = GlobalKey<NavigatorState>();
 
   @override
@@ -29,7 +33,7 @@ class SurfCinema extends StatelessWidget {
         Locale('ru'),
       ],
       theme: AppThemes.materialAppTheme(),
-      home: Container(),
+      home: home,
     );
   }
 }
