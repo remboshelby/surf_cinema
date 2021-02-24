@@ -10,22 +10,22 @@ class ApiGatewayImpl implements ApiGateway {
   final DioClient _client;
   final Config config;
 
-  ApiGatewayImpl(this._client,this.config);
+  ApiGatewayImpl(this._client, this.config);
 
   @override
   Future<Page<FilmItemResponse>> discoverFilms({int page}) async {
     String languageCode = Platform.localeName;
     final response = await _client.get(
-      '/discover/movie?api_key=${config.apiKey}?page=$page?language=$languageCode',
+      '/discover/movie?api_key=${config.apiKey}?language=$languageCode?page=$page',
     );
     return Page.fromJson(_client.getJsonBody(response), (it) => FilmItemResponse.fromJson(it));
   }
 
   @override
-  Future<Page<FilmItemResponse>> searchFilms(Optional<String> keyWord) async {
+  Future<Page<FilmItemResponse>> searchFilms({Optional<String> keyWord, int page}) async {
     String languageCode = Platform.localeName;
     final response = await _client.get(
-      '/search/movies?api_key=${config.apiKey}?page=$page?language=$languageCode',
+      '/search/movies?api_key=${config.apiKey}?language=$languageCode?page=$page',
     );
     return Page.fromJson(_client.getJsonBody(response), (it) => FilmItemResponse.fromJson(it));
   }

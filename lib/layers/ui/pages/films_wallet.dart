@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:optional/optional.dart';
 import 'package:surf_cinema/layers/bloc/pages/films/bloc.dart';
 import 'package:surf_cinema/layers/bloc/pages/films/films_bloc.dart';
 import 'package:surf_cinema/layers/models/ui/film.dart';
 import 'package:surf_cinema/layers/services/domain/films.dart';
 import 'package:surf_cinema/layers/ui/colors.dart';
+import 'package:surf_cinema/layers/ui/widgets/asset_image.dart';
 import 'package:surf_cinema/layers/ui/widgets/bloc_refresh_indicator.dart';
 
 FilmsBloc _bloc(BuildContext context) => BlocProvider.of(context);
@@ -67,8 +69,10 @@ class _ContentList extends StatelessWidget {
         isRefreshingState: (state) => state is RefreshingState,
         child: ListView.builder(
           itemBuilder: (_, i) {
-            final item = list[i];
-            return Container();
+            final film = list[i];
+            return _FilmItem(
+              film: film,
+            );
           },
           itemCount: list.length,
         ),
@@ -95,12 +99,41 @@ class _FilmItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-
+                // _FilmImage(
+                //   posterPath: film.posterPath,
+                // ),
+                Column(
+                  children: [
+                    Text(
+                      film.title,
+                    ),
+                    Text(
+                      film.overview,
+                    ),
+                  ],
+                )
               ],
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class _FilmImage extends StatelessWidget {
+  final Optional<String> posterPath;
+
+  const _FilmImage({Key key, this.posterPath}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return posterPath.isPresent
+        ? SurfImage(
+            height: 60,
+            width: 20,
+            url: posterPath.value,
+          )
+        : const Icon(Icons.error);
   }
 }

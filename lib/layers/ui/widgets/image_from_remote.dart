@@ -3,16 +3,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImageFromRemote extends StatelessWidget {
-  final double size;
+  final double width;
+  final double height;
   final String imageUrl;
 
-  const ImageFromRemote({Key key, this.size, this.imageUrl}) : super(key: key);
+  const ImageFromRemote({
+    Key key,
+    this.width,
+    this.height,
+    this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: size,
-      height: size,
+      width: width,
+      height: height,
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         imageBuilder: (context, imageProvider) => Container(

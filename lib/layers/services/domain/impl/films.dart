@@ -20,8 +20,13 @@ class FilmsServiceImpl implements FilmsService {
   }
 
   @override
-  Future<List<FilmUiModel>> searchFilms(Optional<String> keyWord) async {
-    final page = await _apiGateway.searchFilms(keyWord);
-    return filmsAdapter.createFilmsList(page);
+  Future<List<FilmUiModel>> searchFilms({
+    Optional<String> keyWord = const Optional.empty(),
+    int page,
+  }) async {
+    final filmsPage = await _apiGateway.searchFilms(
+      page: page
+    );
+    return filmsAdapter.createFilmsList(filmsPage);
   }
 }
