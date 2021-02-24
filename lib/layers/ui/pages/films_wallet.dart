@@ -7,7 +7,6 @@ import 'package:surf_cinema/layers/bloc/pages/films/bloc.dart';
 import 'package:surf_cinema/layers/bloc/pages/films/films_bloc.dart';
 import 'package:surf_cinema/layers/models/ui/film.dart';
 import 'package:surf_cinema/layers/services/domain/films.dart';
-import 'package:surf_cinema/layers/ui/colors.dart';
 import 'package:surf_cinema/layers/ui/widgets/asset_image.dart';
 import 'package:surf_cinema/layers/ui/widgets/bloc_refresh_indicator.dart';
 

@@ -1,4 +1,3 @@
-import 'package:optional/optional.dart';
 import 'package:surf_cinema/drivers/json.dart';
 import 'package:surf_cinema/layers/exceptions/common.dart';
 
